@@ -31,6 +31,21 @@ function renderCards() {
 
     cardContent.appendChild(cardText);
     cardHeader.appendChild(cardTitle);
+
+    let nameCard = document.createElement("li");
+    let nameText = document.createTextNode(name);
+    let buttonElement = document.createElement("button");
+
+    let position = cards.indexOf(item);
+    buttonElement.setAttribute("onclick", `deleteCards(${position})`);
+
+    let buttonText = document.createTextNode("Excluir");
+
+    buttonElement.appendChild(buttonText);
+
+    nameCard.appendChild(nameText);
+    nameCard.appendChild(buttonElement);
+    cardElement.appendChild(nameCard);
   }
 }
 renderCards();
@@ -59,6 +74,12 @@ function validaDados(title, text) {
 }
 
 buttonElement.onclick = createCard;
+
+function deleteCards(position) {
+  cards.splice(position, 1);
+
+  renderCards();
+}
 
 function saveInStorage() {
   localStorage.setItem("card_list", JSON.stringify(cards));
