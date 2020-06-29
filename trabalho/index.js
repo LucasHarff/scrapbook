@@ -31,20 +31,29 @@ function renderCards() {
 
     cardContent.appendChild(cardText);
     cardHeader.appendChild(cardTitle);
+    //
+    //
 
     let nameCard = document.createElement("li");
     let nameText = document.createTextNode(name);
     let buttonElement = document.createElement("button");
+    let buttonElements = document.createElement("button");
 
     let position = cards.indexOf(item);
     buttonElement.setAttribute("onclick", `deleteCards(${position})`);
 
+    buttonElements.setAttribute("onclick", `editarCards(${position})`);
+
+    let buttonEditar = document.createTextNode("Editar");
+
     let buttonText = document.createTextNode("Excluir");
 
     buttonElement.appendChild(buttonText);
+    buttonElements.appendChild(buttonEditar);
 
     nameCard.appendChild(nameText);
     nameCard.appendChild(buttonElement);
+    nameCard.appendChild(buttonElements);
     cardElement.appendChild(nameCard);
   }
 }

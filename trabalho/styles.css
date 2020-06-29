@@ -30,3 +30,8 @@ header div a:hover {
   color: #263b5e;
   transition: color 200ms;
 }
+
+#scrapsField .message-cards {
+  height: 200px;
+  overflow-y: scroll;
+}
